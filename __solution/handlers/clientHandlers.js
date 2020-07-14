@@ -2,11 +2,7 @@ const { v4: uuidv4 } = require('uuid');
 const { clients } = require('../data/clients');
 
 const getClientIndex = (id) => {
-  let idx;
-  clients.forEach((client, index) => {
-    if (client.id === id) idx = index;
-  });
-  return idx;
+  return clients.findIndex((client) => client.id === id);
 };
 
 const handleAllClients = (req, res) => {
