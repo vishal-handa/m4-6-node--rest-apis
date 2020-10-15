@@ -23,7 +23,7 @@ Write out each endpoint, its method, and brief description of waht it should do.
 | -------- | ------ | ---------------------- |
 | `/test`  | `GET`  | It is a test endpoint. |
 
-Use [exercise-1.md](exercise-1.md) to complete this exercise.
+Use [exercise-1.md](__workshop/exercise-1.md) to complete this exercise.
 
 _This activity is more about the discussion in how to best organize data endpoints. There will not be any coding._
 
@@ -51,13 +51,9 @@ You can use a module [uuid](https://www.npmjs.com/package/uuid) to generate a us
 
 ## Exercise 3 - Hangman!
 
-Let's build a Hangman Game!
+Let's build the backend of a Hangman Game!
 
-Obviously, this could all be done in the frontend, with vanilla JS, but where's the fun in that! Besides, we are not very trusting and keeping the entire game in the FE would allow users to cheat, if they knew enough JavaScript to find the answer in the `script`s.
-
-### Guidelines
-
-You will divide your concerns in two: the frontend, and the backend. Start with the backend. Only move on to the fronted once you have a fully functional API.
+Obviously, this could all be done in the frontend, but where's the fun in that! Besides, we are not very trusting and keeping the entire game in the FE would allow users to cheat, if they knew enough JavaScript to find the answer.
 
 #### Backend
 
@@ -72,8 +68,8 @@ You will divide your concerns in two: the frontend, and the backend. Start with 
 ```
 
 - Create an API that contains these endpoints.
-  - A `/hangman/word/:id` endpoint can also accept an `id` in its url. If it's provided, it will return the word object, as it is in the array of words. _This is ONLY for testing purposes._ **Do not use this endpoint in the Frontend.**
-  - `GET /hangman/word` This will return an object that contains - the `id` of a random word selected from an array of words - the `letterCount` of the word. **It should NOT contain the actual word!**
+  - A `/hangman/word/:id` endpoint can also accept an `id` in its url. If it's provided, it will return the word object, as it is in the array of words. _This is ONLY for testing purposes._
+  - `GET /hangman/word` This will return an object that contains - the `id` of a random word selected from an array of words - the `letterCount` of the word.
   - `GET /hangman/guess/:id/:letter` This will return the appropriate status code.
   - If the letter guessed is in the word, return an array of booleans that map the letter's position in the word. This will be processed by the FE.
 
@@ -83,28 +79,12 @@ For example, if the server receives this request `/hangman/guess/123/o`, it shou
 __ __ __ O __
 ```
 
-This mechanic should make it make it easier to build the frontend logic that will be required in the frontend.
-
 - Once you have completed these steps, you should be able to _play_ the game via the Insomnia app to test your code.
 - Grab pen and paper and test it out!
 
 ---
 
 <center>🟢 - Complete workshop (100%) - 🟢</center>
-
----
-
-#### Frontend (Stretch)
-
-- There is is an existant static endpoint in the public folder `/hangman`. use that to create your HTML.
-- Add all of your JS to the `scripts.js` file.
-- Create a UI for the game. At a minimum, you should have spaces for the letters in the word that into which you can add the letters, as they are guessed.
-- User input is entirely up to you. It could be a set of 26 buttons, or you could listen for `keyDown` events.
-- No need to render a hanging man...
-- **The FE application will _NEVER_ know the word that the user is trying to guess.**
-  - You will ask the server for a word.
-  - It will provide a word object that includes an `id` and a `letterCount` that you will store to render the game.
-- When the user guesses a letter, you will query the server with the `letter` and the `word.id`. The server will respond with an array of booleans that match the letters in the word. _See backend for detials._
 
 ---
 
