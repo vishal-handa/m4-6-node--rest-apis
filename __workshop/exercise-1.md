@@ -17,3 +17,18 @@ Write out each endpoint, its method, and brief description of waht it should do.
 _This activity is more about the discussion in how to best organize data endpoints. There will not be any coding._
 
 ## Your Answer
+Information about stock:
+GET /product/ -endpoint to get all the available products
+GET /product/type -endpoint to get the info about a specific product
+POST /product/ -endpoint to add a new product to the menu
+PUT /product/13 -endpoint to update the product with id-13
+PATCH /product/13 -endpoint to update a particular property of a product with id-13
+DELETE /product/13 -endpoint to delete the product from the database.
+
+Information about customer:
+GET /customer -endpoint to get all the customer information
+GET /customer/45 -endpoint to get all the info about a particular customer
+POST /customer - endpoint to add a new customer
+PUT /customer/45 -endpoint to update an existing customer
+PATCH /customer/45 -endpoint to update a specific property of an existing customer
+DELETE /customer/45 -endpoint to delete a particular customer
