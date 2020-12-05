@@ -50,33 +50,10 @@ _This separation of concerns allows both the client and the server to evolve ind
 
 ---
 
-### REST is cacheable.
-
-- The client, the server and any intermediary components can all cache resources in order to improve performance.
-
----
-
 ### REST provides a uniform interface between components.
 
 - This simplifies the architecture, as all components follow the same rules to speak to one another.
 - It also makes it easier to understand the interactions between the different components of the system.
-
----
-
-### REST is a layered system.
-
-- Individual components cannot see beyond the immediate layer with which they are interacting.
-- This allows components to be independent and thus easily replaceable or extendable.
-
----
-
-### More Opinions
-
-- It should use web standards where they make sense
-- It should be friendly to the developer and be explorable via a browser address bar
-- It should be simple, intuitive and consistent to make adoption not only easy but pleasant
-- It should provide enough flexibility to power majority of the Enchant UI
-- It should be efficient, while maintaining balance with the other requirements
 
 ---
 
@@ -99,24 +76,12 @@ _Basically, follow `CRUD` (Create, Read, Update, Delete)_
 
 ### Example
 
-- `GET /tickets` - Retrieves a list of tickets
-- `GET /tickets/12` - Retrieves a specific ticket
-- `POST /tickets` - Creates a new ticket
-- `PUT /tickets/12` - Updates ticket #12 (sends a complete object for #12 to server)
-- `PATCH /tickets/12` - Partially updates ticket #12 (sends only data to update)
-- `DELETE /tickets/12` - Deletes ticket #12
-
----
-
-### What About Related Data?
-
-If a resources can only exist _within_ a resource, it should be part of the endpoint.
-
-<a href='https://www.instagram.com/developer/endpoints/users/#get_users_self' target='_blank'>Instagram Endpoints</a>
-
----
-
-<img src='./assets/github-endpoints.png' />
+- `GET /products` - Retrieves a list of products
+- `GET /product/12` - Retrieves a specific product
+- `POST /products` - Creates a new product
+- `PUT /product/12` - Updates product #12 (sends a complete object for #12 to server)
+- `PATCH /product/12` - Partially updates product #12 (sends only data to update)
+- `DELETE /product/12` - Deletes product #12
 
 ---
 
