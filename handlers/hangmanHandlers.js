@@ -33,7 +33,7 @@ const playGame=(req,res)=>{
     if(word.includes(letter)){
         let wordarr=word.split('');
         let getIndex=getIndices(wordarr,letter);
-        getIndex.forEach(index=>newArr[index]=letter);
+        getIndex.forEach(index=>newArr[index]=true);
         return res.json({status:200, message:newArr})
     }
     else{
