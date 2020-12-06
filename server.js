@@ -4,6 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const { allclients, clientByID, addClient, deleteClient }=require('./handlers/clientHandlers');
+const { getWordID, getWord, playGame }=require('./handlers/hangmanHandlers')
 
 express()
   .use(function (req, res, next) {
@@ -26,6 +27,9 @@ express()
   .post("/addclient",addClient)
   .delete("/deleteclient/:id",deleteClient)
 
-  //
+  //exercise3
+  .get("/hangman/word/:id",getWordID)
+  .get("/hangman/word", getWord)
+  .get("/hangman/guess/:id/:letter", playGame)
 
   .listen(8000, () => console.log(`Listening on port 8000`));
