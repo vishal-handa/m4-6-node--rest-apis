@@ -16,7 +16,13 @@ const getWord=(req,res)=>{
     let word=words.filter((el)=>el.id===id);
     res.json({status:200, message:word});
 }
-
+const getIndices=(arr, val)=>{
+    var index = [], i = -1;
+    while ((i = arr.indexOf(val, i+1)) != -1){
+        index.push(i);
+    }
+    return index;
+}
 const playGame=(req,res)=>{
     const id=req.params.id;
     const letter=req.params.letter;
@@ -25,8 +31,9 @@ const playGame=(req,res)=>{
     let newArr=new Array(parseInt(wordObj[0].letterCount));
     newArr.fill(false);
     if(word.includes(letter)){
-        let getIndex=word.indexOf(letter);
-        newArr[getIndex]=true;
+        let wordarr=word.split('');
+        let getIndex=getIndices(wordarr,letter);
+        getIndex.forEach(index=>newArr[index]=letter);
         return res.json({status:200, message:newArr})
     }
     else{
